@@ -13,14 +13,8 @@ export class Ecommerce {
         await this.page.fill("//input[@id='email_create']", data.email)
         await this.page.click("#SubmitCreate");
         await this.page.fill("#customer_firstname", data.username);
+        await this.page.fill("#customer_lastname", data.lastname)
     }
-
-
-
-
-
-
-
 
     async signIn(email, password){
         await this.page.fill("//input[@id='email']", email)

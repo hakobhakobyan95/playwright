@@ -23,10 +23,8 @@ it('should work', async () => {
   // await ecommerce.search("test")
   await ecommerce.createAccount({
     email: "ucrafttest@mailinator.com",
-    username: "test"
+    username: "test",
+    lastname: "test"
   });
-
-  // setTimeout(() => )
-  // jest.setTimeout(20000)
   
 });
