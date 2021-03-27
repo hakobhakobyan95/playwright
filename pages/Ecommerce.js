@@ -1,15 +1,17 @@
-export class Ecommerce {
-
+import {URL} from './dataFiles'
+import {ecommercePaths} from './ecommercePaths'
+export class Ecommerce { 
+    
     constructor(page){
         this.page = page
     }
 
     async open(){
-        await this.page.goto("http://automationpractice.com/")
+        await this.page.goto(URL)
     }
 
     async createAccount(data) {
-        await this.page.click(".login")
+        await this.page.click(ecommercePaths.loginPath)
         await this.page.fill("//input[@id='email_create']", data.email)
         await this.page.click("#SubmitCreate");
         await this.page.fill("#customer_firstname", data.username);
@@ -17,8 +19,10 @@ export class Ecommerce {
     }
 
     async signIn(email, password){
-        await this.page.fill("//input[@id='email']", email)
-        await this.page.fill("#passwd", password)
+        await this.page.click(ecommercePaths.loginPath)
+        await this.page.fill(ecommercePaths.emailPath, email)
+        await this.page.fill(ecommercePaths.passwordPath, password)
+        await this.page.click(ecommercePaths.signInPath)
 
     }
     async search(name){
